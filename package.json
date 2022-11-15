@@ -15,6 +15,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.2",
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
