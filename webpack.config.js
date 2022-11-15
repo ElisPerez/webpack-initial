@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -16,8 +17,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
+        exclude: /style.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /style.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
     ],
   },
   optimization: {},
@@ -26,6 +32,12 @@ module.exports = {
       title: 'Titulo de la pagina desde HtmlWebpackPlugin',
       // filename: 'myCustomName.html', // Default: 'index.html'
       template: './src/index.html',
+    }),
+    new MiniCssExtractPlugin({
+      // filename: "[name].css", // Default: main.css
+      // filename: "[name].[fullhash].css", // main.77b98e9f4ffb9cf2bd92.css
+      filename: 'style.css', // Custom filename.
+      ignoreOrder: false,
     }),
   ],
 };
