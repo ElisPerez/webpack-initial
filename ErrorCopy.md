@@ -1,4 +1,4 @@
-
+# ACTUALIZACION: Era que tenia otra imagen en el component.js y era solo la del index.html la que debia estar. 😂
 > webpack-initial@1.0.0 build
 > webpack --config webpack.config.js
 
